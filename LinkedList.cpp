@@ -44,20 +44,22 @@ void LinkedList::insertEnd(int data) {
 }
 
 // Insertion at index
-void LinkedList::insertAtIndex(int data) {
+void LinkedList::insertAtIndex(int data, int index) {
     Node* newNode = new Node;
     newNode->data = data;
 
-    if (head == nullptr || head->data >= data) {
+    if (index <= 0) {
         newNode->next = head;
         head = newNode;
         return;
     }
 
     Node* current = head;
+    int currentPosition = 0;
 
-    while (current->next != nullptr && current->next->data < data) {
+    while (current->next != nullptr && currentPosition < index - 1) {
         current = current->next;
+        currentPosition++;
     }
     newNode->next = current->next;
     current->next = newNode;
@@ -122,28 +124,6 @@ void LinkedList::deleteAtIndex(int index) {
     delete temp;
 }
 
-// Split list into halves
-void LinkedList::frontBackSplit(LinkedList &frontList, LinkedList &backList) {
-    if (head == nullptr) {
-        return;
-    }
-
-    Node* slow = head;
-    Node* fast = head->next;
-
-    while (fast != nullptr) {
-        fast = fast->next;
-        if (fast != nullptr) {
-            slow = slow->next;
-            fast = fast->next;
-        }
-    }
-
-    frontList.head = head;
-    backList.head = slow->next;
-    slow->next = nullptr;
-}
-
 // Merge two lists
 LinkedList LinkedList::mergeList(LinkedList &firstList, LinkedList &secondList) {
     LinkedList mergedList;
@@ -179,5 +159,14 @@ void LinkedList::displayList() {
         std::cout << current->data << " ";
         current = current->next;
     }
-    std::cout << std::endl;
+}
+
+int LinkedList::listSize() {
+    int nodeCount = 0;
+    Node* current = head;
+    while (current != nullptr) {
+        nodeCount++;
+        current = current->next;
+    }
+    return nodeCount;
 }

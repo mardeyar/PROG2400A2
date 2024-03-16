@@ -13,13 +13,13 @@ public:
 
     void insertStart(int data);
     void insertEnd(int data);
-    void insertAtIndex(int data);
+    void insertAtIndex(int data, int index);
     void deleteFirst();
     void deleteLast();
     void deleteAtIndex(int index);
-    void frontBackSplit(LinkedList& frontList, LinkedList& backList);
     static LinkedList mergeList(LinkedList& firstList, LinkedList& secondList);
     void displayList();
+    int listSize();
 };
 
 #endif //PROG2400A2_LINKEDLIST_H
