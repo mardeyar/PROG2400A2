@@ -9,7 +9,6 @@ private:
 
 public:
     LinkedList();
-    ~LinkedList();
 
     void insertStart(int data);
     void insertEnd(int data);

@@ -6,17 +6,6 @@ LinkedList::LinkedList() {
     head = nullptr;
 }
 
-// Destructor
-LinkedList::~LinkedList() {
-    Node* current = head;
-    Node* next;
-    while (current != nullptr) {
-        next = current->next;
-        delete current;
-        current = next;
-    }
-}
-
 // Insertion at list beginning
 void LinkedList::insertStart(int data) {
     Node* newNode = new Node;
