@@ -23,3 +23,6 @@ Clone the repository to your local:
 - static LinkedList mergeList(LinkedList &firstList, LinkedList &secondList): Merge two lists.
 - displayList(): Display the elements of the list.
 - listSize(): Get the size of the list.
+
+## Output
+![screen](https://github.com/mardeyar/PROG2400A2/assets/117761940/d07838d7-6b48-4ef6-bc2f-59b1fde97065)
